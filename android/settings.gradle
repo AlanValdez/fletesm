@@ -1,0 +1,3 @@
+rootProject.name = 'fletesm_app'
+
+include ':app'
