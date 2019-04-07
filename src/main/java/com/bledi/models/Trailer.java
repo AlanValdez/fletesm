@@ -4,13 +4,19 @@ public class Trailer {
 
 	private int trailer_id;
 	private String placas;
-	private float capacidad;
+	private float capacidad_toneladas;
+	public Trailer() { }
+	public Trailer(String placas, float capacidad_toneladas) {
+		super();
+		this.placas = placas;
+		this.capacidad_toneladas = capacidad_toneladas;
+	}
 	
-	public Trailer(int trailer_id, String placas, float capacidad) {
+	public Trailer(int trailer_id, String placas, float capacidad_toneladas) {
 		super();
 		this.trailer_id = trailer_id;
 		this.placas = placas;
-		this.capacidad = capacidad;
+		this.capacidad_toneladas = capacidad_toneladas;
 	}
 
 	public int getTrailer_id() {
@@ -29,12 +35,12 @@ public class Trailer {
 		this.placas = placas;
 	}
 
-	public float getCapacidad() {
-		return capacidad;
+	public float getcapacidad_toneladas() {
+		return capacidad_toneladas;
 	}
 
-	public void setCapacidad(float capacidad) {
-		this.capacidad = capacidad;
+	public void setcapacidad_toneladas(float capacidad_toneladas) {
+		this.capacidad_toneladas = capacidad_toneladas;
 	}
 	
 	
