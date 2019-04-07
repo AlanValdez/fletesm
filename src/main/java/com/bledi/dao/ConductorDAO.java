@@ -101,11 +101,10 @@ public class ConductorDAO {
 	  	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	  	    
 			String date = format.format(conductor.getDia_nacimiento());
-			
+
 			String query = String.format("UPDATE conductor SET nombre = '%s', apellidos = '%s', dia_nacimiento = '%s', genero = '%s' WHERE conductor_id = %d",
 	  	    				  					conductor.getNombre(), conductor.getApellidos(), date, Character.toUpperCase(conductor.getSexo()), conductor_id);
-			System.out.println(query);
-//			stmt.executeUpdate(query);
+			stmt.executeUpdate(query);
   	      return conductor_id;
   	    } catch (Exception e) {
   	    	e.printStackTrace();  
