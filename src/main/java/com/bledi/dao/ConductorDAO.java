@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -77,7 +76,7 @@ public class ConductorDAO {
 		try (Connection connection = dataSource.getConnection()) {
   	      	Statement stmt = connection.createStatement();
 	  	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			String date = format.format(conductor.getDia_naciento());
+			String date = format.format(conductor.getDia_nacimiento());
 			String query = String.format("INSERT INTO conductor (nombre, apellidos, dia_nacimiento, genero) VALUES ('%s', '%s', '%s', '%s')",
 	  	    				  					conductor.getNombre(), conductor.getApellidos(), date, Character.toUpperCase(conductor.getSexo()));
 			 stmt.executeUpdate(
@@ -100,10 +99,13 @@ public class ConductorDAO {
   	      	Statement stmt = connection.createStatement();
   	      	
 	  	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			String date = format.format(conductor.getDia_naciento());
+	  	    
+			String date = format.format(conductor.getDia_nacimiento());
+			
 			String query = String.format("UPDATE conductor SET nombre = '%s', apellidos = '%s', dia_nacimiento = '%s', genero = '%s' WHERE conductor_id = %d",
 	  	    				  					conductor.getNombre(), conductor.getApellidos(), date, Character.toUpperCase(conductor.getSexo()), conductor_id);
-			stmt.executeUpdate(query);
+			System.out.println(query);
+//			stmt.executeUpdate(query);
   	      return conductor_id;
   	    } catch (Exception e) {
   	    	e.printStackTrace();  
