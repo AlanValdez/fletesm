@@ -7,15 +7,25 @@ public class Conductor {
 	private int conductor_id;
 	private String nombre;
 	private String apellidos;
-	private Date dia_naciento;
+	private Date dia_nacimiento;
 	private char sexo;
 	
+	public Conductor() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Conductor(String nombre, String apellidos, Date dia_naciento, char sexo) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dia_nacimiento = dia_naciento;
+		this.sexo = sexo;
+	}
 	public Conductor(int conductor_id, String nombre, String apellidos, Date dia_naciento, char sexo) {
 		super();
 		this.conductor_id = conductor_id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.dia_naciento = dia_naciento;
+		this.dia_nacimiento = dia_naciento;
 		this.sexo = sexo;
 	}
 	
@@ -38,10 +48,10 @@ public class Conductor {
 		this.apellidos = apellidos;
 	}
 	public Date getDia_naciento() {
-		return dia_naciento;
+		return dia_nacimiento;
 	}
 	public void setDia_naciento(Date dia_naciento) {
-		this.dia_naciento = dia_naciento;
+		this.dia_nacimiento = dia_naciento;
 	}
 	public char getSexo() {
 		return sexo;
