@@ -49,8 +49,16 @@ public class Main {
 
   @Bean
   public DataSource dataSource() throws SQLException {
-    if (dbUrl == null || dbUrl.isEmpty()) {
-      return new HikariDataSource();
+	  String username = System.getenv("username");
+	  String pwf = System.getenv("password");
+	  String db = System.getenv("JAWSDB_URL");
+	  String env = System.getenv("enviroment");
+    if (dbUrl == null || dbUrl.isEmpty() || db != "" || env != "prod") {
+    	HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(db);
+        config.setUsername( username );
+        config.setPassword( pwf );
+        return new HikariDataSource(config);
     } else {
       HikariConfig config = new HikariConfig();
       config.setJdbcUrl(dbUrl);
