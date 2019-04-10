@@ -55,7 +55,7 @@ public class Main {
         return new HikariDataSource(config);
     } else {
       HikariConfig config = new HikariConfig();
-      config.setJdbcUrl(dbUrl);
+      config.setJdbcUrl("jdbc:mysql://c8s6cfa6po7ubcj1:misic9rpj33tynh3@ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q2ljgqcyywaeqg0s");
       config.setUsername( "c8s6cfa6po7ubcj1" );
       config.setPassword( "misic9rpj33tynh3" );
       return new HikariDataSource(config);
