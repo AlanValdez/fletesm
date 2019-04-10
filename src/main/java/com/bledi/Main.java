@@ -31,7 +31,6 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 
-@Controller
 @SpringBootApplication
 public class Main {
 
@@ -42,17 +41,12 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
-  @RequestMapping("/")
-  String index() {
-    return "index";
-  }
-
   @Bean
   public DataSource dataSource() throws SQLException {
 	  String username = System.getenv("username");
-	  String pwf = System.getenv("password");
-	  String db = System.getenv("JAWSDB_URL");
-	  String env = System.getenv("enviroment");
+	  String pwf = System.getenv().get("password");
+	  String db = System.getenv().get("JAWSDB_URL");
+	  String env = System.getenv().get("enviroment");
     if (dbUrl == null || dbUrl.isEmpty() || db != "" || env != "prod") {
     	HikariConfig config = new HikariConfig();
         config.setJdbcUrl(db);
