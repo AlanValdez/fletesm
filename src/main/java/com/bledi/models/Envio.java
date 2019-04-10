@@ -7,12 +7,15 @@ public class Envio {
 	private int conductor_id;
 	private int trailer_id;
 	private String tipo_carga;
+	private Date fecha_salida;
 	private String cliente;
-	private String estado_actual;
 	private String estado;
 	private String ciudad;
 	private String direccion;
-	private Date fecha_salida;
+	private String estado_actual;
+	
+	public Envio() { }
+	
 	public Envio(int conductor_id, int trailer_id, String tipo_carga, String cliente, String estado_actual,
 			String estado, String ciudad, String direccion, Date fecha_salida) {
 		super();
