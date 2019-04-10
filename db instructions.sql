@@ -30,6 +30,23 @@ CREATE TABLE envios (
 CREATE TABLE envios_completados (
   envio_id INT PRIMARY KEY NOT NULL auto_increment,
   fecha_salida DATE,
-  fecha_entrada DATE,
+  fecha_entrada TIMESTAMP DEFAULT current_timestamp,
   cliente VARCHAR(40)
 );
+
+DELIMITER $$
+CREATE
+    TRIGGER autoCloseEnvio AFTER UPDATE
+    ON envios
+    FOR EACH ROW BEGIN
+        IF NEW.estado_actual = 'Terminado' THEN
+            INSERT INTO envios_completados(fecha_salida, cliente, conductor_id, trailer_id) VALUES(NEW.fecha_salida, NEW.cliente, NEW.conductor_id, NEW.trailer_id);
+        END IF;
+    END$$
+DELIMITER ;
+
+{"placas": "FHN-44A-KSM", "capacidad_toneladas": 27.26}
+
+{"nombre": "test update 2", "apellidos": "valdez", "dia_nacimiento": "1997-02-01", "sexo": "m"}
+
+PUT envios?cond=1&trai=1
