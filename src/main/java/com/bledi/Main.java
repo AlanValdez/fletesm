@@ -47,9 +47,6 @@ public class Main {
 
   @Value("${spring.datasource.url}")
   private String dbUrl;
-
-  @Autowired
-  private DataSource dataSource;
   
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -59,40 +56,6 @@ public class Main {
   String index() {
     return "index";
   }
-
-  @RequestMapping("/db")
-  String db(Map<String, Object> model) {
-    try (Connection connection = dataSource.getConnection()) {
-      Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-      ArrayList<String> output = new ArrayList<String>();
-      while (rs.next()) {
-        output.add("Read from DB: " + rs.getTimestamp("tick"));
-      }
-
-      model.put("records", output);
-      return "db";
-    } catch (Exception e) {
-      model.put("message", e.getMessage());
-      return "error";
-    }
-  }
-  
-  @RequestMapping("/hello")
-  String hello(Map<String, Object> model) {
-      RelativisticModel.select();
-      String energy = System.getenv().get("ENERGY");
-      if (energy == null) {
-         energy = "12 GeV";
-      }
-      Amount<Mass> m = Amount.valueOf(energy).to(KILOGRAM);
-      model.put("science", "E=mc^2: " + energy + " = "  + m.toString());
-      return "hello";
-  }
-  
 
   @Bean
   public DataSource dataSource() throws SQLException {
@@ -106,7 +69,5 @@ public class Main {
       return new HikariDataSource(config);
     }
   }
-  
-  
 
 }
