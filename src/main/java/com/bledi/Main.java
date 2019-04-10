@@ -47,7 +47,7 @@ public class Main {
 	  String pwf = System.getenv().get("password");
 	  String db = System.getenv().get("JAWSDB_URL");
 	  String env = System.getenv().get("enviroment");
-    if (dbUrl == null || dbUrl.isEmpty() || db != "" || env != "prod") {
+    if (dbUrl == null || dbUrl.isEmpty() && db != "" && env != "prod") {
     	HikariConfig config = new HikariConfig();
         config.setJdbcUrl(db);
         config.setUsername( username );
@@ -56,8 +56,8 @@ public class Main {
     } else {
       HikariConfig config = new HikariConfig();
       config.setJdbcUrl(dbUrl);
-      config.setUsername( "root" );
-      config.setPassword( "mustang" );
+      config.setUsername( "c8s6cfa6po7ubcj1" );
+      config.setPassword( "misic9rpj33tynh3" );
       return new HikariDataSource(config);
     }
   }
