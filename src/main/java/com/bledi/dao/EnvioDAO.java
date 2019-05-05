@@ -24,7 +24,7 @@ public class EnvioDAO {
 		try (Connection connection = dataSource.getConnection()) {
   	      Statement stmt = connection.createStatement();
 
-  	      ResultSet rs = stmt.executeQuery("select * from envios");
+  	      ResultSet rs = stmt.executeQuery("select envios.*, CONCAT(conductor.nombre,\" \", conductor.apellidos) AS NombreCompleto, trailer.placas  from envios inner join conductor on envios.conductor_id = conductor.conductor_id inner join trailer on envios.trailer_id = trailer.trailer_id;");
   	      List<Envio> myEnvios = envioDTO.DTOtoEnvioList(rs);
   	      
   	      return myEnvios;
