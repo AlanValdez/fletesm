@@ -26,7 +26,10 @@ public class EnvioDTO {
 				String ciudad = rs.getString("ciudad");
 				String direccion = rs.getString("direccion");
 				String estado_actual = rs.getString("estado_actual");
-				envio = new Envio(conductor_id, trailer_id, tipo_carga,cliente, estado_actual, estado, ciudad, direccion, fecha_salida);
+				String nombreCompleto = rs.getString("nombreCompleto");
+				String placas = rs.getString("placas");
+
+				envio = new Envio(conductor_id, trailer_id, tipo_carga,cliente, estado_actual, estado, ciudad, direccion, fecha_salida,nombreCompleto,placas);
     	      }
 
 			return envio;
@@ -50,7 +53,9 @@ public class EnvioDTO {
 				String ciudad = rs.getString("ciudad");
 				String direccion = rs.getString("direccion");
 				String estado_actual = rs.getString("estado_actual");
-				envioList.add(new Envio(conductor_id, trailer_id, tipo_carga,cliente, estado_actual, estado, ciudad, direccion, fecha_salida));
+				String nombreCompleto = rs.getString("nombreCompleto");
+				String placas = rs.getString("placas");
+				envioList.add(new Envio(conductor_id, trailer_id, tipo_carga,cliente, estado_actual, estado, ciudad, direccion, fecha_salida,nombreCompleto,placas));
     	      }
 
 			return envioList;

@@ -34,23 +34,21 @@ public class Envio {
 	
 	public Envio() { }
 	
-
-	public Envio(int conductor_id, int trailer_id, String tipo_carga, Date fecha_salida, String cliente, String estado,
-			String ciudad, String direccion, String estado_actual, String nombreCompleto, String placas) {
+	public Envio(int conductor_id, int trailer_id, String tipo_carga, String cliente, String estado_actual,
+			String estado, String ciudad, String direccion, Date fecha_salida, String nombreCompleto, String placas) {
 		super();
 		this.conductor_id = conductor_id;
 		this.trailer_id = trailer_id;
 		this.tipo_carga = tipo_carga;
-		this.fecha_salida = fecha_salida;
 		this.cliente = cliente;
+		this.estado_actual = estado_actual;
 		this.estado = estado;
 		this.ciudad = ciudad;
 		this.direccion = direccion;
-		this.estado_actual = estado_actual;
-		NombreCompleto = nombreCompleto;
+		this.fecha_salida = fecha_salida;
+		this.NombreCompleto = nombreCompleto;
 		this.placas = placas;
 	}
-
 	public int getConductor_id() {
 		return conductor_id;
 	}
