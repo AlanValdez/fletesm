@@ -10,6 +10,8 @@ public interface IEnvioController {
 
 	ResponseEntity<List<Envio>> getAllEnvio();
 
+	ResponseEntity<List<Envio>> getAllEnviosTerminados();
+
 	ResponseEntity<Integer> createEnvio(Envio envio);
 
 	ResponseEntity<Envio> getEnviosByConductorId(int conductor_id);

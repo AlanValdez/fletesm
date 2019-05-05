@@ -31,6 +31,14 @@ public class EnvioController implements IEnvioController {
 		// TODO Auto-generated method stub
 		return new ResponseEntity<List<Envio>>(envioDAO.getAllEnvios(), HttpStatus.OK);
 	}
+	
+	@Override
+	@GetMapping("/envios_terminados")
+	@ResponseBody
+	public ResponseEntity<List<Envio>> getAllEnviosTerminados() {
+		// TODO Auto-generated method stub
+		return new ResponseEntity<List<Envio>>(envioDAO.getAllEnviosTerminados(), HttpStatus.OK);
+	}
 
 	@Override
 	@PostMapping("/envios")
@@ -66,5 +74,7 @@ public class EnvioController implements IEnvioController {
 		if(trailer_id != 0) return new ResponseEntity<Envio>(envioDAO.getEnviosByConductorId(trailer_id), HttpStatus.OK);
 		else return new ResponseEntity<Envio>(HttpStatus.BAD_REQUEST);
 	}
+
+	
 
 }

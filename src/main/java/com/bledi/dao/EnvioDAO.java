@@ -34,6 +34,20 @@ public class EnvioDAO {
 		return null;
 	}
 	
+	public List<Envio> getAllEnviosTerminados() {
+		try (Connection connection = dataSource.getConnection()) {
+  	      Statement stmt = connection.createStatement();
+
+  	      ResultSet rs = stmt.executeQuery("select envios_completados.*, CONCAT(conductor.nombre,\" \", conductor.apellidos) AS NombreCompleto, trailer.placas  from envios_completados inner join conductor on envios_completados.conductor_id = conductor.conductor_id inner join trailer on envios_completados.trailer_id = trailer.trailer_id;");
+  	      List<Envio> myEnvios = envioDTO.DTOtoEnvioTerminadoList(rs);
+  	      
+  	      return myEnvios;
+  	    } catch (Exception e) {
+  	    	e.printStackTrace();  	    
+  	    }
+		return null;
+	}
+	
 	public Envio getEnviosByTrailerId(int trailer_id) {
 		try (Connection connection = dataSource.getConnection()) {
   	      Statement stmt = connection.createStatement();

@@ -4,10 +4,27 @@ import java.util.Date;
 
 public class Envio {
 	
+	private int envio_id;
 	private int conductor_id;
 	private int trailer_id;
 	private String tipo_carga;
 	private Date fecha_salida;
+	private Date fecha_entrada;
+	public int getEnvio_id() {
+		return envio_id;
+	}
+
+	public void setEnvio_id(int envio_id) {
+		this.envio_id = envio_id;
+	}
+
+	public Date getFecha_entrada() {
+		return fecha_entrada;
+	}
+
+	public void setFecha_entrada(Date fecha_entrada) {
+		this.fecha_entrada = fecha_entrada;
+	}
 	private String cliente;
 	private String estado;
 	private String ciudad;
@@ -48,6 +65,18 @@ public class Envio {
 		this.fecha_salida = fecha_salida;
 		this.NombreCompleto = nombreCompleto;
 		this.placas = placas;
+	}
+	
+	public Envio(int envio_id,Date fecha_entrada , Date fecha_salida, String cliente, int conductor_id, int trailer_id, String NombreCompleto, String placas) {
+		super();
+		this.conductor_id = conductor_id;
+		this.trailer_id = trailer_id;
+		this.cliente = cliente;
+		this.fecha_entrada = fecha_entrada;
+		this.fecha_salida = fecha_salida;
+		this.NombreCompleto = NombreCompleto;
+		this.placas = placas;
+		this.envio_id = envio_id;
 	}
 	public int getConductor_id() {
 		return conductor_id;

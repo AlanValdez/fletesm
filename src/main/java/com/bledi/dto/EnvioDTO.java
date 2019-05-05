@@ -65,4 +65,29 @@ public class EnvioDTO {
 		}	
 		return null;
 	}
+	
+	public List<Envio> DTOtoEnvioTerminadoList (ResultSet rs) {
+		try {
+			List<Envio> envioList = new ArrayList<>();
+			while (rs.next()) {
+				
+				int envio_id = rs.getInt("envio_id");
+				Date fecha_entrada = rs.getDate("fecha_entrada");
+				Date fecha_salida = rs.getDate("fecha_salida");
+				String cliente = rs.getString("cliente");
+				int conductor_id = rs.getInt("conductor_id");
+				int trailer_id = rs.getInt("trailer_id");
+				String nombreCompleto = rs.getString("nombreCompleto");
+				String placas = rs.getString("placas");
+
+				envioList.add(new Envio(envio_id, fecha_entrada, fecha_salida,cliente, conductor_id, trailer_id, nombreCompleto, placas));
+    	      }
+
+			return envioList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return null;
+	}
 }
