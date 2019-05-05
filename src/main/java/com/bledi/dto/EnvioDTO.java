@@ -20,7 +20,7 @@ public class EnvioDTO {
 				int conductor_id = rs.getInt("conductor_id");
 				int trailer_id = rs.getInt("trailer_id");
 				String tipo_carga = rs.getString("tipo_carga");
-				Date fecha_salida = rs.getDate("fecha_salida");
+				String fecha_salida = rs.getString("fecha_salida");
 				String cliente = rs.getString("cliente");
 				String estado = rs.getString("estado");
 				String ciudad = rs.getString("ciudad");
@@ -47,7 +47,7 @@ public class EnvioDTO {
 				int conductor_id = rs.getInt("conductor_id");
 				int trailer_id = rs.getInt("trailer_id");
 				String tipo_carga = rs.getString("tipo_carga");
-				Date fecha_salida = rs.getDate("fecha_salida");
+				String fecha_salida = rs.getString("fecha_salida");
 				String cliente = rs.getString("cliente");
 				String estado = rs.getString("estado");
 				String ciudad = rs.getString("ciudad");
@@ -72,12 +72,12 @@ public class EnvioDTO {
 			while (rs.next()) {
 				
 				int envio_id = rs.getInt("envio_id");
-				Date fecha_entrada = rs.getDate("fecha_entrada");
-				Date fecha_salida = rs.getDate("fecha_salida");
+				String fecha_salida = rs.getString("fecha_salida");
+				String fecha_entrada = rs.getString("fecha_entrada");
 				String cliente = rs.getString("cliente");
 				int conductor_id = rs.getInt("conductor_id");
 				int trailer_id = rs.getInt("trailer_id");
-				String nombreCompleto = rs.getString("nombreCompleto");
+				String nombreCompleto = rs.getString("NombreCompleto");
 				String placas = rs.getString("placas");
 
 				envioList.add(new Envio(envio_id, fecha_entrada, fecha_salida,cliente, conductor_id, trailer_id, nombreCompleto, placas));

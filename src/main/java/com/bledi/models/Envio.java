@@ -8,8 +8,8 @@ public class Envio {
 	private int conductor_id;
 	private int trailer_id;
 	private String tipo_carga;
-	private Date fecha_salida;
-	private Date fecha_entrada;
+	private String fecha_salida;
+	private String fecha_entrada;
 	public int getEnvio_id() {
 		return envio_id;
 	}
@@ -18,11 +18,11 @@ public class Envio {
 		this.envio_id = envio_id;
 	}
 
-	public Date getFecha_entrada() {
+	public String getFecha_entrada() {
 		return fecha_entrada;
 	}
 
-	public void setFecha_entrada(Date fecha_entrada) {
+	public void setFecha_entrada(String fecha_entrada) {
 		this.fecha_entrada = fecha_entrada;
 	}
 	private String cliente;
@@ -52,7 +52,7 @@ public class Envio {
 	public Envio() { }
 	
 	public Envio(int conductor_id, int trailer_id, String tipo_carga, String cliente, String estado_actual,
-			String estado, String ciudad, String direccion, Date fecha_salida, String nombreCompleto, String placas) {
+			String estado, String ciudad, String direccion, String fecha_salida, String nombreCompleto, String placas) {
 		super();
 		this.conductor_id = conductor_id;
 		this.trailer_id = trailer_id;
@@ -67,7 +67,7 @@ public class Envio {
 		this.placas = placas;
 	}
 	
-	public Envio(int envio_id,Date fecha_entrada , Date fecha_salida, String cliente, int conductor_id, int trailer_id, String NombreCompleto, String placas) {
+	public Envio(int envio_id,String fecha_entrada , String fecha_salida, String cliente, int conductor_id, int trailer_id, String NombreCompleto, String placas) {
 		super();
 		this.conductor_id = conductor_id;
 		this.trailer_id = trailer_id;
@@ -126,10 +126,10 @@ public class Envio {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public Date getFecha_salida() {
+	public String getFecha_salida() {
 		return fecha_salida;
 	}
-	public void setFecha_salida(Date fecha_salida) {
+	public void setFecha_salida(String fecha_salida) {
 		this.fecha_salida = fecha_salida;
 	}
 	

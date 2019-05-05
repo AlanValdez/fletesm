@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class EnviosCompletados {
 
-	private int envio_id;
+	private int envio_id ;
 	private Date fecha_salida;
 	private Date fecha_entrada;
 	private String cliente;
